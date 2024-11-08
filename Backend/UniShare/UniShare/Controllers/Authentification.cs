@@ -24,8 +24,8 @@ namespace UniShare.Controllers
             _configuration = configuration;
         }
 
-        [HttpPost("SignIn")]
-        public async Task<IActionResult> SignIn(AuthentificationUser userRequest)
+        [HttpPost("SignUp")]
+        public async Task<IActionResult> SignUp(AuthentificationUser userRequest)
         {
             if (userRequest.EmailAdress is null || userRequest.Username is null||userRequest.Password is null) 
             {
