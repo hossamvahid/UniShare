@@ -13,7 +13,7 @@ form{
     border-radius: 16px;
     padding: 20px;
     width: 340px;
-    height: 430px;
+    height: 500px;
     position: absolute;
     z-index: 2;
 
@@ -38,4 +38,75 @@ form{
 
 }
 
+h1{
+    padding: 30px;
+    color:rgb(48, 68, 99);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+input[type="text"], input[type="password"]{
+    padding: 10px;
+    margin: 7px;
+    width: 90%;
+    border: none;
+    border-bottom: 2px solid  rgb(125, 138, 188);
+    background-color: rgb(120, 157, 188,0.1);
+}
+
+input::placeholder{
+    color: rgb(120, 157, 188) ;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    padding: 10px;
+    margin: 20px;
+    font-size: 20px;
+    border-radius: 16px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    cursor: pointer;
+    color:  rgb(120, 157, 188);
+    transition: background-color 0.3px, transform 0.2s;
+
+}
+.buttonclass
+{
+    padding: 10px;
+    margin: 20px;
+    font-size: 20px;
+    border-radius: 16px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+    cursor: pointer;
+    color:  rgb(120, 157, 188);
+    transition: background-color 0.3px, transform 0.2s;
+}
+
+p{
+    color:#304463 ;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 20px;
+}
+
+a{
+    color: #304463;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+button:hover{
+ background-color:rgb(48, 68, 99) ;
+}
