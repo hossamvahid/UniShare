@@ -10,24 +10,29 @@
 
 </head>
 <body>
-    <div class="cerc" style="top: 7%; left: 15%; "></div>
-    <div class="cerc" style="top: 65%; left:60%"></div>
+    <div class="cerc circle1" ></div>
+    <div class="cerc circle2"></div>
     <div class="background" >
       
-        <form action="">
-            <h1>Sign Up</h1>
+        <form action="" class="sign">
+            <p class="title">Sign Up</p>
 
-            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Name" class="input" required>
    
-            <input type="text" placeholder="Email" required>
+            <input type="text" placeholder="Email" class="input" required>
 
-            <input type="password" placeholder="Password" required>
+            <select id="status">
+                <option value="" disabled selected>Choose status</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+            <input type="password" placeholder="Password" class="input" required>
 
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="password" placeholder="Confirm Password" class="input" required>
 
-            <button type="submit" class="buttonclass">Sign Up </button>
+            <button type="submit" class="button">Sign Up </button>
 
-            <p>Have an account? <a href="#">Login Here</a></p>
+            <p class="already">Have an account? <a href="#" class="Link">Login Here</a></p>
 
     </form>
     </div>
