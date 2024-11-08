@@ -2,19 +2,17 @@
     box-sizing: border box;
     margin: 0;
     padding: 0;
-    color:#304463;
 }
 body {
-    color:#304463;
  display: flex;
  justify-content:center;
  align-items:center;
  height: 100vh;
  background-color:#FFE3E3;
  font-family: Arial,sans-serif;
+ overflow: hidden;
 }
 .login-container{
-    color:#304463;
     position: relative;
     width:100%;
     max-width:400px;
@@ -24,7 +22,7 @@ body {
     border-radius: 8px;
     text-align: left;
 }
-
+/*
 .login-container::before,
 .login-container::after {
     color:#304463;
@@ -35,6 +33,15 @@ border-radius:50%;
 background-color:#789DBC ;
 z-index:-1;
 }
+*/
+.circle{
+    position: absolute;
+    border-radius:50%;
+    background-color:#789DBC;
+    z-index:-1;
+}
+
+/* cerc stanga sus
 .login-container::before {
     width: 150px;
     height: 150px;
@@ -42,16 +49,31 @@ z-index:-1;
     left: -75px;
     opacity: 0.6;
 }
+    */
+.circle-left{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -75px;
+    left: -75px;
+    opacity: 0.6;
+}
+/* cerc dreapta jos
 .login-container::after {
-    color:#304463;
 
     width: 100px;
     height: 100px;
     bottom: -50px;
     right: -50px;
     opacity: 0.8;
+}*/
+.circle-right{
+    width: 100px;
+    height: 100px;
+    bottom: -50px;
+    right: -50px;
+    opacity: 0.8;
 }
-
 
 h2{
     margin-bottom: 20px;
