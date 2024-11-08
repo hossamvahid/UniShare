@@ -53,7 +53,7 @@ namespace UniShare.Controllers
             return Ok(userRequest);
         }
 
-        [HttpGet("SingIn")]
+        [HttpPost("SingIn")]
         public  async Task<IActionResult>SignIn(AuthorizationUser userRequest)
         {
             if (userRequest.EmailAdress is null || userRequest.Password is null)
@@ -94,7 +94,7 @@ namespace UniShare.Controllers
 
             var jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return Ok(jwtToken);
+            return Ok(new { token = jwtToken });
 
 
 

@@ -13,6 +13,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Allowed",
+        builder =>
+        {
+            builder.WithOrigins("http://127.0.0.1:5500")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+        });
+});
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
      options.UseNpgsql(builder.Configuration.GetConnectionString("DataConnection"));
@@ -51,6 +63,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("Allowed");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
