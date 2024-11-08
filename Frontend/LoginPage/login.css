@@ -119,3 +119,20 @@ input[type="password"] {
 .login-button:hover {
     background-color: #FFC7ED;
 }
+
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 2.5rem; /* spațiu pentru icon */
+}
+
+.password-container i {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d; /* culoare icon */
+}
