@@ -11,7 +11,8 @@ namespace UniShare.Mappers.UserMapper
             {
                 EmailAdress = authentificationUser.EmailAdress,
                 Username = authentificationUser.Username,
-                Password = authentificationUser.Password
+                Password = authentificationUser.Password,
+                Role=authentificationUser.Role
             };
         }
 
@@ -21,7 +22,9 @@ namespace UniShare.Mappers.UserMapper
             {
                 EmailAdress = user.EmailAdress,
                 Username = user.Username,
-                Password = user.Password
+                Password = user.Password,
+                Role = user.Role
+
             };
         }
     }

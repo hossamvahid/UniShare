@@ -30,13 +30,13 @@ namespace UniShare.Controllers
         {
             if (userRequest.EmailAdress is null || userRequest.Username is null||userRequest.Password is null) 
             {
-                return BadRequest("Please fill all the requierd spaces");
+                return BadRequest(new { error = "Please fill all the requierd spaces" });
             }
             bool found=_appDbContext.Users.Any(x=>x.EmailAdress == userRequest.EmailAdress||x.Username==userRequest.Username);
 
             if(found==true)
             {
-                return BadRequest("The email already exist");
+                return BadRequest(new { error = "The email already exist" });
             }
 
            
@@ -45,7 +45,8 @@ namespace UniShare.Controllers
             {
                 EmailAdress = userRequest.EmailAdress,
                 Username = userRequest.Username,
-                Password = userRequest.Password
+                Password = userRequest.Password,
+                Role=userRequest.Role
 
             };
             await _appDbContext.AddAsync(user);
