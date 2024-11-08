@@ -16,7 +16,7 @@ namespace UniShare.Controllers
             _appDbContext = appDbContext;
         }
 
-        [HttpPost("SignIn")]
+        [HttpPost("SignUp")]
         public async Task<IActionResult> SignIn(AuthentificationUser userRequest)
         {
             if (userRequest.EmailAdress is null || userRequest.Username is null||userRequest.Password is null) 
@@ -44,5 +44,7 @@ namespace UniShare.Controllers
 
             return Ok(userRequest);
         }
+
+        [HttpGet("Sing")]
     }
 }
