@@ -12,7 +12,7 @@ namespace UniShare.Models
 
         [Column("Email")]
         [EmailAddress]
-        public string EmailAddress { get; set; }
+        public string EmailAdress { get; set; }
 
         [Column("Username")]
         public string Username { get; set; }
