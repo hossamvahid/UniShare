@@ -24,7 +24,7 @@ namespace UniShare.Controllers
             _configuration = configuration;
         }
 
-        [HttpPost("SignUp")]
+        [HttpPost("SignIn")]
         public async Task<IActionResult> SignIn(AuthentificationUser userRequest)
         {
             if (userRequest.EmailAdress is null || userRequest.Username is null||userRequest.Password is null) 
@@ -52,6 +52,7 @@ namespace UniShare.Controllers
 
             return Ok(userRequest);
         }
+
 
         [HttpPost("SingIn")]
         public  async Task<IActionResult>SignIn(AuthorizationUser userRequest)
@@ -99,5 +100,6 @@ namespace UniShare.Controllers
 
 
         }
+
     }
 }
