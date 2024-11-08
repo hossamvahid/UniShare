@@ -37,6 +37,7 @@ loginButton.addEventListener('click', (event) => {
       }else
       {
          console.error('Login error token not received error message: ', data.error);
+         alert("Email/Password incoret");
           
       }
     })
