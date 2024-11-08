@@ -5,7 +5,7 @@ namespace UniShare.Database
 {
     public class AppDbContext:DbContext
     {
-        public AppDbContext(DbContextOptions options) : base() { }
+        public AppDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<UserModel>Users { get; set; }
     }

@@ -310,6 +310,9 @@ launchSettings.json
 PerosnalExpanses.http
 secrets.json
 
+#Ignore Migration folder
+Migrations/
+
 # Paket dependency manager
 .paket/paket.exe
 paket-files/
