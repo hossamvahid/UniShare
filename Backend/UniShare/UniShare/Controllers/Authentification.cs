@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Any;
@@ -62,7 +63,7 @@ namespace UniShare.Controllers
                 return BadRequest("Please fill all the requierd spaces");
             }
 
-            var user = _appDbContext.Users.FirstOrDefault(x => x.EmailAdress == userRequest.EmailAdress);
+            var user = await _appDbContext.Users.FirstOrDefaultAsync(x=>x.EmailAdress==userRequest.EmailAdress);
             if (user == null)
             {
                 return BadRequest("Email is not vallid");
