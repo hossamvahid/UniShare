@@ -18,7 +18,7 @@ namespace UniShare.Controllers
         private readonly AppDbContext _appDbContext;
         private readonly IMinioClient _minioClient;
 
-        public Course(AppDbContext appDbContext,IMinioClient minioClient)
+        public Course(AppDbContext appDbContext, IMinioClient minioClient)
         {
             _appDbContext = appDbContext;
             _minioClient = minioClient;
@@ -35,22 +35,22 @@ namespace UniShare.Controllers
             };
 
             var userIdClaim = this.User.Claims.FirstOrDefault(x => x.Type == "UserId");
-            
+
             if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
             {
-                  course.UserId = userId;            
+                course.UserId = userId;
             }
             else
             {
-               return BadRequest("User ID-ul was not found.");
+                return BadRequest("User ID-ul was not found.");
             }
 
 
-            var courseExist= await _appDbContext.Courses.AnyAsync(x=>x.Name == courseRequest.Name||x.Id==course.UserId);
+            var courseExist = await _appDbContext.Courses.AnyAsync(x => x.Name == courseRequest.Name || x.Id == course.UserId);
 
-            if(courseExist) 
+            if (courseExist)
             {
-                return BadRequest("The course already was created");            
+                return BadRequest("The course already was created");
             }
 
             await _appDbContext.Courses.AddAsync(course);
@@ -58,15 +58,15 @@ namespace UniShare.Controllers
 
             return Ok(course);
 
-         }
+        }
 
         [HttpPost("CreateMaterial")]
 
-        public async Task<IActionResult> Create(IFormFile file,int courseId)
+        public async Task<IActionResult> Create(IFormFile file, int courseId)
         {
             var course = await _appDbContext.Courses.FirstOrDefaultAsync(x => x.Id == courseId);
-            if(course == null) 
-            { 
+            if (course == null)
+            {
                 return NotFound("The course not founded");
             }
             string bucketName = course.Category == 0 ? "programming" : "mathematics";
@@ -74,34 +74,34 @@ namespace UniShare.Controllers
             var material = new MaterialModel
             {
                 FileName = file.FileName,
-                Bucket=bucketName,
-                CourseId=courseId,
+                Bucket = bucketName,
+                CourseId = courseId,
             };
 
-           
-            using(Stream stream=new MemoryStream())
+
+            using (Stream stream = new MemoryStream())
             {
                 await file.CopyToAsync(stream);
                 stream.Position = 0;
 
                 try
                 {
-                    
+
                     PutObjectArgs putObjectArgs = new PutObjectArgs()
                                                     .WithBucket(bucketName)
                                                     .WithObject(file.FileName)
                                                     .WithContentType(file.ContentType)
                                                     .WithObjectSize(stream.Length)
                                                     .WithStreamData(stream);
-                    
-              
-                    
 
-                    await _minioClient.PutObjectAsync(putObjectArgs);                                               
+
+
+
+                    await _minioClient.PutObjectAsync(putObjectArgs);
                 }
                 catch (Exception ex)
                 {
-                    return StatusCode(500,ex.Message);
+                    return StatusCode(500, ex.Message);
                 }
             }
 
@@ -113,8 +113,52 @@ namespace UniShare.Controllers
 
         }
 
+        [HttpGet("DownloadMaterial")]
+        public async Task<IActionResult> DownloadMaterial(int materialId)
+        {
+           
+            var material = await _appDbContext.Materials.FindAsync(materialId);
+ 
 
+            if(material is null)
+            {
+                return NotFound();
+            }
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                GetObjectArgs getObjectArgs = new GetObjectArgs()
+                    .WithBucket(material.Bucket)
+                    .WithObject(material.FileName)
+                    .WithCallbackStream(callback => callback.CopyTo(stream));
+
+           
+                await _minioClient.GetObjectAsync(getObjectArgs);
+
+            
+                stream.Position = 0;
+
+           
+                return File(stream.ToArray(), "application/pdf", material.FileName);
+            }
+         }
+
+        [HttpGet("GetMaterials")]
+        public async Task<IActionResult> GetMaterials(int courseId)
+        {
+            var materials = await _appDbContext.Materials
+                                                .Where(x => x.CourseId == courseId)
+                                                .ToListAsync();
+
+            if (!materials.Any())
+            {
+                return NotFound("No materials found for this course.");
+            }
+
+            return Ok(materials);
+        }
 
 
     }
 }
+
