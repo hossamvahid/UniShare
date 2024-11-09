@@ -9,7 +9,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(120, 157, 188,0.4);
+    background-color: rgb(187, 211, 231);
     border-radius: 16px;
     padding: 20px;
     max-width: 360px;
@@ -37,7 +37,7 @@
     position: fixed;
     width: 100px;
     height: 100px;
-    background-color: rgb(201, 233, 210,0.8);
+    background-color: rgb(222, 255, 231);
 }
 
 .square1{top: 30vh;left: 30vw;}
