@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace UniShare.Models
 {
+    public enum UserRole { Teacher,Student}
     public class UserModel
     {
         [Column("Id")]
@@ -19,5 +20,8 @@ namespace UniShare.Models
 
         [Column("Password")]
         public string Password { get; set; }
+
+        [Column("UserRole")]
+        public UserRole Role { get; set; }  
     }
 }

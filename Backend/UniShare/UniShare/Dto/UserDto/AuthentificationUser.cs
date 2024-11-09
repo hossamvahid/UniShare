@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using UniShare.Models;
 
 namespace UniShare.Dto.UserDto
 {
@@ -8,5 +9,7 @@ namespace UniShare.Dto.UserDto
         public string Password { get; set;}
         [EmailAddress]
         public string EmailAdress { get; set;}
+
+        public UserRole Role { get; set; }
     }
 }

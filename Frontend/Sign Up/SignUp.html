@@ -28,18 +28,18 @@
         <form action="" class="sign">
             <p class="title">Sign Up</p>
 
-            <input type="text" placeholder="Name" class="input" required>
+            <input type="text" id="name" placeholder="Name" class="input" required>
    
-            <input type="text" placeholder="Email" class="input" required>
+            <input type="text" id="email" placeholder="Email" class="input" required>
 
             <select id="status">
                 <option value="" disabled selected>Choose status</option>
                 <option value="Teacher">Teacher</option>
                 <option value="Student">Student</option>
             </select>
-            <input type="password" placeholder="Password" class="input" required>
+            <input type="password" id="password" placeholder="Password" class="input" required>
 
-            <input type="password" placeholder="Confirm Password" class="input" required>
+            <input type="password" id="confirm" placeholder="Confirm Password" class="input" required>
 
             <button type="submit" class="button">Sign Up </button>
 
@@ -47,5 +47,6 @@
 
     </form>
     </div>
+    <script src="SignUp.js" ></script>
 </body>
 </html>
