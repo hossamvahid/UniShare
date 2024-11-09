@@ -22,6 +22,6 @@ namespace UniShare.Models
         public string Password { get; set; }
 
         [Column("UserRole")]
-        public UserRole Role { get; set; }  
+        public UserRole Role { get; set; }
     }
 }

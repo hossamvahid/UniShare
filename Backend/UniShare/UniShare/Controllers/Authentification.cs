@@ -79,7 +79,7 @@ namespace UniShare.Controllers
 
             var claim = new[]
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
+                new Claim("UserId", user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Name,user.Username)
 
             };
