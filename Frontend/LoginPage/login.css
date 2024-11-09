@@ -159,3 +159,20 @@ input[type="password"] {
     cursor: pointer;
     color: #6c757d; /* culoare icon */
 }
+
+.signup-text{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color:#304463;
+}
+.signup-text a {
+color:#304463;
+font-weight: bold;
+text-decoration: none;
+transition: color 0.3s;
+}
+.signup-text a:hover{
+    color:#FFC7ED;
+    text-decoration: underline;
+}
