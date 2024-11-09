@@ -9,5 +9,8 @@ namespace UniShare.Database
 
         public DbSet<UserModel>Users { get; set; }
         public DbSet<CourseModel> Courses { get; set; }
+
+        public DbSet<MaterialModel> Materials { get; set; }
+            
     }
 }

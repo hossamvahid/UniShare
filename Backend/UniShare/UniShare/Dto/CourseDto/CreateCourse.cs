@@ -16,6 +16,7 @@ namespace UniShare.Dto.CourseDto
         [Column("Category")]
         public Category Category { get; set; }
 
-      
+        [Column("UserId")]
+        public int UserId { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using UniShare.Database;
+using Minio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,6 +51,14 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidateLifetime = true,
     };
+});
+
+builder.Services.AddMinio(config =>
+{
+    config.WithEndpoint(builder.Configuration["MinIo:endpoint"])
+    .WithCredentials(builder.Configuration["MinIo:acceskey"], builder.Configuration["MinIo:secretkey"])
+    .WithSSL(false)
+    .Build();
 });
 
 var app = builder.Build();
