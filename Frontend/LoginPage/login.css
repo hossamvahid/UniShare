@@ -22,58 +22,38 @@ body {
     border-radius: 8px;
     text-align: left;
 }
-/*
-.login-container::before,
-.login-container::after {
-    color:#304463;
-
-content:'';
-position: absolute;
-border-radius:50%;
-background-color:#789DBC ;
-z-index:-1;
-}
-*/
 .circle{
     position: absolute;
     border-radius:50%;
     background-color:#789DBC;
-    z-index:-1;
+    z-index:-2;
 }
 
-/* cerc stanga sus
-.login-container::before {
-    width: 150px;
-    height: 150px;
-    top: -75px;
-    left: -75px;
-    opacity: 0.6;
-}
-    */
 .circle-left{
     position: absolute;
     width: 150px;
     height: 150px;
     top: -75px;
     left: -75px;
-    opacity: 0.6;
+    opacity: 0.5;
 }
-/* cerc dreapta jos
-.login-container::after {
 
-    width: 100px;
-    height: 100px;
-    bottom: -50px;
-    right: -50px;
-    opacity: 0.8;
-}*/
 .circle-right{
     width: 100px;
     height: 100px;
     bottom: -50px;
     right: -50px;
+    opacity: 0.6;
+}
+
+.circle-right2{
+    width: 75px;
+    height: 75px;
+    bottom: -50px;
+    right: 150px;
     opacity: 0.8;
 }
+
 
 .square{
     position:absolute;
@@ -83,8 +63,8 @@ z-index:-1;
     z-index: -1;
 }
 .square-top-right {
-    top: 30px;
-    right: 30px;
+    top: 100px;
+    right: 300px;
     opacity: 0.9;
 }
 .square-bottom-left {
@@ -92,6 +72,31 @@ z-index:-1;
     left: 30px;
     opacity: 0.9;
 }
+
+.triangle1{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 80px solid rgb(255, 243, 193);
+    z-index:-1;
+    position:fixed;
+    top: 60%;
+    left: 15%;
+}
+
+.triangle2{
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 80px solid rgb(255, 243, 193);
+    top: 40%;
+    right: 20%;
+    z-index: -1;
+    position: fixed;
+}
+
 h2{
     margin-bottom: 20px;
     color:#304463;
