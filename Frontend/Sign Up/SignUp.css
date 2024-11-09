@@ -99,12 +99,27 @@
 }
 
 .input{
-    padding: 10px;
-    margin: 5px;
+    padding: 12px;
+    margin: 4px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid  rgb(125, 138, 188);
+    background-color: rgb(120, 157, 188,0.1);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.input2{
+    padding: 12px;
+    margin: 4px;
     width: 90%;
     border: none;
     border-bottom: 2px solid  rgb(125, 138, 188);
     background-color: rgb(120, 157, 188,0.1);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    border-radius: 8px;
 }
 
 .input::placeholder{
@@ -115,9 +130,17 @@
     outline: none;
 }
 
+.input2::placeholder{
+    color: rgb(120, 157, 188) ;
+}
+
+.input2:focus{
+    outline: none;
+}
+
 .button{
     padding: 13px;
-    margin: 20px;
+    margin: 14px;
     font-size: 18px;
     border-radius: 16px;
     border: none;
@@ -131,14 +154,12 @@
 .already{
     color:#304463 ;
     font-weight: 500;
-    padding: 5px;
     font-size: 20px;
 }
 
 .Link{
     color: #304463;
     font-weight: 500;
-    padding: 5px;
     font-size: 20px;
     text-decoration: none;
 }
@@ -154,13 +175,34 @@
 #status{
     color: rgb(120, 157, 188);
     font-weight: 600;
-    background-color:rgb(223, 231, 236);
+    background-color:rgb(223, 231, 236, 0.5);
     font-size: 17px;
     padding: 4px;
     margin: 5px;
     border: none;
+    border-radius: 12px;
 }
 
 #status:focus{
  outline: none;   
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+   
+}
+
+.password-field {
+    padding-right:40px;
+}
+
+.password-container i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d; 
 }

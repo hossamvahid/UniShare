@@ -73,3 +73,34 @@ circles.forEach((circle, index) => {
   animate();
 });
 
+const passwordInput=document.getElementById('password');
+const confirmPassword=document.getElementById('confirm');
+const eyeIcon=document.getElementById('eyeIcon');
+const eyeIcon2=document.getElementById('eyeIconConfirm');  
+
+eyeIcon.addEventListener('click',()=>{
+    if(passwordInput.type==='password'){
+        passwordInput.type='text';
+        eyeIcon.classList.remove('bi-eye');
+        eyeIcon.classList.add('bi-eye-slash');
+    }
+    else{
+        passwordInput.type='password';
+        eyeIcon.classList.remove('bi-eye-slash');
+        eyeIcon.classList.add('bi-eye');
+    }   
+});
+
+eyeIconConfirm.addEventListener('click',()=>{
+    if(confirmPassword.type==='password'){
+        confirmPassword.type='text';
+        eyeIcon2.classList.remove('bi-eye');
+        eyeIcon2.classList.add('bi-eye-slash');
+    }
+    else{
+        confirmPassword.type='password';
+        eyeIcon2.classList.remove('bi-eye-slash');
+        eyeIcon2.classList.add('bi-eye');
+    }   
+});
+
