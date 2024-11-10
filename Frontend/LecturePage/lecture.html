@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lecture.css">
+    <title>Document</title>
+     <!-- Bootstrap Icons -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div id="materii"class="materii visible">
+            <div class="title">
+                <h2 id="button" class="bi bi-list"></h2>  
+                <h1 id="lectureTitle">Lectures</h1>
+                 <button id="createLecture"class="buttonCreate visible">Create Lecture</button>
+                
+            </div>
+       
+        <ol id="lecture-list" class="custom-list"></ol>
+
+        </div>
+
+        <div id="menu"class="menu hidden">
+            <h2 id="buttonMenu"class="bi bi-box-arrow-left element"></h2>
+            <a href="/HomePage/home.html" class="link">Home</a>  
+            <a href="/AboutUs Page/about.html" class="link">About Us</a>
+            <a href="/LoginPage/login.html" class="link">Login</a>
+            <a href="/Sign Up/SignUp.html" class="link">SignUp</a>
+        </div>
+
+        <div id="material-section" class="hidden">
+            <h2 id="lecture-title"></h2>
+            <ul id="pdf-list"></ul>
+            <button onclick="backToMaterii()">Inapoi la Materii</button>
+        </div>
+          <div id="createLectureForm" class="hidden">
+            <h2>Create New Course</h2>
+            <form id="courseForm">
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" name="courseName" required><br>
+
+                <label for="courseCategory">Category:</label>
+                <select id="courseCategory" name="courseCategory" required>
+                    <option value="0">Programming</option>
+                    <option value="1">Mathematics</option>
+                </select><br>
+
+                <button type="submit" class="buttonCreate">Create Course</button>
+                <button type="button" class="buttonCreate" id="cancelCreate">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="lecture.js"></script> 
+</body>
+</html>

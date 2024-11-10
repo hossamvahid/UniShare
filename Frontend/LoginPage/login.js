@@ -40,7 +40,7 @@ loginButton.addEventListener('click', (event) => {
         if (data.token) {
             console.log('Token: ', data.token);
             localStorage.setItem('authToken', data.token);
-            window.location.href = '/HomePage/home.html';
+            window.location.href = '/LecturePage/lecture.html';
         } else {
             console.error('Login error token not received error message: ', data.error);
             alert("Email/Password incorrect");

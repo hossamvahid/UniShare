@@ -1,0 +1,138 @@
+.hidden { 
+    display: none !important; 
+}
+.visible { 
+    display: block; 
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #BFECFF;
+}
+
+/* Centering container with Flexbox */
+.container {
+    background-color: #FBFBFB;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3C3D37;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 70%;  /* Adjust as needed */
+    max-width: 800px;
+    min-width: 400px;
+    height: auto; /* Use auto height to fit the content */
+    text-align: center;
+    box-sizing: border-box;
+    margin: auto; /* This ensures centering */
+}
+
+/* Title section styling */
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px;
+    word-spacing: 10px;
+}
+
+/* Custom list for lectures */
+.custom-list {
+    list-style: none;
+    counter-reset: list-counter;
+    padding-left: 0;
+    font-weight: 600;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left; /* Align text to the left */
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Custom numbering for each list item */
+.custom-list li::before {
+    content: counter(list-counter);
+    counter-increment: list-counter;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border: 2px solid green;
+    border-radius: 50%;
+    color: green;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Style for "Create Lecture" button */
+.buttonCreate {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 16px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+    background-color: #CDC1FF;
+    cursor: pointer;
+    color: #F7F9F2;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.buttonCreate:hover {
+    background-color: #FFCCEA;
+}
+
+/* Style for menu items */
+.menu {
+    display: flex;
+    flex-direction: column; /* Stack links vertically for mobile */
+    align-items: center;
+    gap: 15px; /* Add space between items */
+}
+
+.link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3C3D37;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #FBFBFB;
+    transition: all 0.3s ease;
+}
+
+.link:hover {
+    color: #FFFFFF;
+    background-color: #CDC1FF;
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; 
+        max-width: 100%; 
+        height: auto; 
+    }
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
