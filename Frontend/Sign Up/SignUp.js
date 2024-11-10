@@ -104,3 +104,27 @@ eyeIconConfirm.addEventListener('click',()=>{
     }   
 });
 
+// Toggle visibility of the menu
+const showMenu = document.getElementById('button');
+showMenu.addEventListener('click', () => {
+    const signUp = document.getElementById('signUp');
+    signUp.classList.add('hidden');
+    signUp.classList.remove('visible');
+
+    const menu = document.getElementById('menu');
+    menu.classList.add('visible');
+    menu.classList.remove('hidden');
+});
+
+// Toggle back to the sign-up form
+const showMaterii = document.getElementById("buttonMenu");
+showMaterii.addEventListener('click', () => {
+    const signUp = document.getElementById('signUp');
+    signUp.classList.add('visible');
+    signUp.classList.remove('hidden');
+
+    const menu = document.getElementById('menu');
+    menu.classList.add('hidden');
+    menu.classList.remove('visible');
+});
+

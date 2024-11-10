@@ -107,9 +107,11 @@ function getMaterials(courseId) {
                 listItem.appendChild(downloadLink);
                 
                 // Adaugă elementul de listă în lista finală
-            
+                
                 pdfList.appendChild(listItem);
+               
             });
+            pdfList.classList.add('custom-list');
         } else {
             alert('No materials found for this course.');
         }
@@ -345,3 +347,26 @@ window.addEventListener('wheel', function(e) {
     e.preventDefault(); // Previne comportamentul implicit de derulare
 }, { passive: false });
 
+
+
+const circleSper=document.getElementById('circle');
+const circles = document.querySelectorAll('.circle');
+const radius = 300; // Raza cercului de mișcare
+const speed = 0.014; // Viteza mișcării
+
+circles.forEach((circle, index) => {
+  let angle = index * (Math.PI /2); // Offset de un sfert de cerc între elemente
+  
+  function animate() {
+    angle += speed; // Incrementăm unghiul pentru a crea mișcarea
+    const x = radius * Math.cos(angle); // Calculăm coordonata X
+    const y = radius * Math.sin(angle); // Calculăm coordonata Y
+    
+    // Aplicăm transformarea pentru poziționare
+    circle.style.transform = `translate(${x}px, ${y}px)`;
+    
+    requestAnimationFrame(animate); // Continuăm animația
+  }
+
+  animate();
+});

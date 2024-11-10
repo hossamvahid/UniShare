@@ -71,9 +71,9 @@ html, body {
     transform: translateY(-50%);
     width: 30px;
     height: 30px;
-    border: 2px solid green;
+    border: 2px solid #B9E5E8;
     border-radius: 50%;
-    color: green;
+    color: #7AB2D3;
     text-align: center;
     line-height: 30px;
     font-size: 18px;
@@ -120,6 +120,7 @@ html, body {
 
 .link:hover {
     color: #FFFFFF;
+    text-decoration: none;
     background-color: #CDC1FF;
     transform: scale(1.05);
 }
@@ -135,4 +136,157 @@ html, body {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+
+
+
+
+ /* Containerul pentru login */
+.login-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #FEF9F2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: left;
+    z-index: 10; /* Asigură-te că e peste cercuri */
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #3795BD;
+    z-index: -2;
+
+}
+
+.circle-left {
+    width: 150px;
+    height: 150px;
+    top: 15%;
+    left: 25%;
+    opacity: 0.6;
+}
+
+.circle-right {
+    width: 100px;
+    height: 100px;
+    bottom: 50%;
+    right: 19%;
+    opacity: 0.6;
+}
+
+/* Container for upload and create course form */
+.form-container, .upload-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #FBFBFB;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styling the Upload Button */
+.upload-container .buttonCreate, .upload-form .buttonCreate {
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #3795BD;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.upload-container .buttonCreate:hover, .upload-form .buttonCreate:hover {
+    background-color: #4CB5E5;
+    transform: scale(1.05);
+}
+
+/* Input Field for File Upload */
+.upload-form input[type="file"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Create Course Form */
+#createLectureForm {
+    padding: 20px;
+    background-color: #FBFBFB;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/* Styling for labels and inputs within the Create Course Form */
+#createLectureForm label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #3C3D37;
+}
+
+#createLectureForm input[type="text"], #createLectureForm select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#createLectureForm select {
+    cursor: pointer;
+}
+
+#createLectureForm .buttonCreate {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #4CB5E5;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Button hover effect */
+#createLectureForm .buttonCreate:hover {
+    background-color: #3795BD;
+    transform: scale(1.05);
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .upload-container, .form-container, #createLectureForm {
+        width: 90%;
+        max-width: 100%;
+    }
+}
+
+
+#pdf-list {
+    padding-top: 10px;
+    max-height: 400px; /* Poți ajusta valoarea la necesitățile tale */
+    overflow-y: auto;  /* Activează scroll-ul vertical */
+    padding-right: 20px; /* Adaugă distanță între scrollbar și text */
+     /* Poți ajusta valoarea pentru a evita să adaugi spațiu suplimentar pe dreapta */  
+    box-sizing: content-box; /* Asigură-te că padding-ul nu va afecta dimensiunea containerului */
+    width: 75%;
 }

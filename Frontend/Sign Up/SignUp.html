@@ -18,28 +18,13 @@
     <div class="circle circle1" ></div>
     <div class="circle circle2"></div>
     <div class="circle circle3"></div>
-    <div class="circle circle4"></div>
-    <div class="square square1"></div>
-    <div class="square square2"></div>
-    <div class="square square3"></div>
-    <div class="square square4"></div>
-    <div class="triangle1"></div>
-    <div class="triangle2"></div>
-    <div class="triangle3"></div>
+  
+
     
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#Home">Home</a></li>
-                <li><a href="#LogIn">Login</a></li>
-                <li><a href="#SignIn">Sign In</a></li>
-                <li><a href="Lectures">Lectures</a></li>
-            </ul>
-        </nav>
-    </header>
    
-        <form action="" class="sign">
+        <form id="signUp"action="" class="sign visible">
             <p class="title">Sign Up</p>
+            <h2 id="button" class="bi bi-list absolutebut"></h2>  
 
             <input type="text" id="name" placeholder="Name" class="input2" required>
    
@@ -65,9 +50,21 @@
             <span id="passwordError" style="color: red; display: none;">Parolele nu coincid!</span>
             <button type="submit" class="button">Sign Up </button>
 
-            <p class="already">Have an account? <a href="login.html" target="_blank"  class="Link">Login Here</a></p>
+            <p class="already">Have an account? <a href="/LoginPage/login.html" target="_blank"  class="Link">Login Here</a></p>
 
     </form>
+
+    <div id="menu"class="container hidden">
+        
+        <div class="menu">
+            <h2 id="buttonMenu"class="bi bi-box-arrow-left element"></h2>
+            <a href="/HomePage/home.html" class="linkMenu">Home</a> 
+            <a href="/LecturePage/lecture.html" class="linkMenu">Lectures</a> 
+            <a href="/LoginPage/login.html" class="linkMenu">Login</a>
+        
+        </div>
+    </div>
     <script src="SignUp.js" ></script>
+</header>
 </body>
 </html>

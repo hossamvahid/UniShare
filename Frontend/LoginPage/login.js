@@ -74,3 +74,28 @@ circles.forEach((circle, index) => {
 
   animate();
 });
+
+// Toggle visibility of the menu when "button" (menu icon) is clicked
+const showMenu = document.getElementById('button');
+showMenu.addEventListener('click', () => {
+    const loginContainer = document.querySelector('.login-container');
+    loginContainer.classList.add('hidden');
+    loginContainer.classList.remove('visible');
+
+    const menu = document.getElementById('menu');
+    menu.classList.add('visible');
+    menu.classList.remove('hidden');
+});
+
+// Toggle back to the login form when "buttonMenu" (back icon) is clicked
+const showLoginForm = document.getElementById("buttonMenu");
+showLoginForm.addEventListener('click', () => {
+    const loginContainer = document.querySelector('.login-container');
+    loginContainer.classList.add('visible');
+    loginContainer.classList.remove('hidden');
+
+    const menu = document.getElementById('menu');
+    menu.classList.add('hidden');
+    menu.classList.remove('visible');
+});
+
