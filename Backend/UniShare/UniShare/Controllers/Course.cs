@@ -166,6 +166,18 @@
                 return Ok(courses);
             }
 
+         [HttpGet("GetRole")]
+        public IActionResult GetRole()
+        {
+            var role = this.User.Claims.FirstOrDefault(x => x.Type == "Role");
+            var id = this.User.Claims.FirstOrDefault(x => x.Type == "UserId");
+            if(role == null||id==null)
+            {
+                return BadRequest("Error at token: missing role or userId");
+            }
+
+            return Ok(new { Role = role.Value,UserId= id.Value });
+        }
 
         }
     }

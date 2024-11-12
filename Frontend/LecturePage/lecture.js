@@ -2,54 +2,89 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchMaterii();
 });  
 
+async function GetRole() {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        console.log("Nu există niciun token.");
+        return null;
+    }
+
+    try {
+        const response = await fetch("https://localhost:7209/api/Course/GetRole", {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+        if (!response.ok) {
+            throw new Error('Failed to fetch role');
+        }
+        const data = await response.json();
+        return data;  // Return the role data so it can be used elsewhere
+    } catch (error) {
+        console.error('Eroare la obținerea rolului:', error);
+        return null;  // Return null if there's an error
+    }
+}
+
+
 // Functie pentru a obtine cursurile (materiile)
 function fetchMaterii() {
     fetch("https://localhost:7209/api/Course/GetCourse", {
-         method: 'GET',
-         mode: 'cors',
-         headers: {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
-         }
+        }
     })
     .then(response => response.json())
     .then(data => {
         const lectureList = document.getElementById('lecture-list');
-        const token = localStorage.getItem('authToken');
 
-        if (token) {
-            const base64Url = token.split('.')[1];  // Payload-ul este partea a doua a tokenului
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');  // Corectează pentru compatibilitate
-            const decodedPayload = JSON.parse(atob(base64));  // Decodifică payload-ul JWT
-            const role = decodedPayload.Role;  // Extrage rolul din payload
-            const userId=decodedPayload.userId;
+        // Apelăm GetRole și folosim .then() pentru a obține datele
+        GetRole().then(roleData => {
+            if (roleData) {
+                const { role, userId } = roleData;
+                console.log("Rolul utilizatorului este:", role);
 
-            console.log("Rolul utilizatorului este:", role);
-            if (role === 'Student') {
-                const addLecture = document.getElementById('createLecture');
-                addLecture.classList.add('hidden');
-                addLecture.classList.remove('visible');
+                if (role === 'Student') {
+                    const addLecture = document.getElementById('createLecture');
+                    addLecture.classList.add('hidden');
+                    addLecture.classList.remove('visible');
 
-                const lectureTitle = document.getElementById('lectureTitle');
-                lectureTitle.style.textAlign = 'center'; 
+                    const lectureTitle = document.getElementById('lectureTitle');
+                    lectureTitle.style.textAlign = 'center';
+                    const newParagraph = document.createElement('p');
+                    newParagraph.textConten=' ';
+                    const container = document.getElementById('title');
+                    container.appendChild(newParagraph);    
+
+                }
+
+                lectureList.innerHTML = '';
+
+                // Adăugarea cursurilor în UI
+                data.forEach(lecture => {
+              
+
+                    const listItem = document.createElement('li');
+                    listItem.textContent = lecture.name;
+                    listItem.dataset.id = lecture.id;
+                    listItem.addEventListener('click', () => showPdfsForMaterie(lecture.id, lecture.name, lecture.userId, roleData.userId));
+                    lectureList.appendChild(listItem);
+                });
+
+            } else {
+                console.log("Nu există informații despre rol.");
             }
-            lectureList.innerHTML = '';
-  // Adăugarea cursurilor în UI
-        data.forEach(lecture => {
-            console.log(lecture.name);
-            console.log(lecture.id);
-            const listItem = document.createElement('li');
-            listItem.textContent = lecture.name;
-            listItem.dataset.id = lecture.id;
-            listItem.addEventListener('click', () => showPdfsForMaterie(lecture.id, lecture.name,lecture.creatorId,userId));
-            lectureList.appendChild(listItem);
+        }).catch(error => {
+            console.error('Eroare la obținerea rolului:', error);
         });
 
-        } else {
-            console.log("Nu există niciun token.");
-        }
-
-      
     })
     .catch(error => console.error('Eroare la obținerea materiilor:', error));
 }
@@ -66,7 +101,7 @@ function showPdfsForMaterie(courseId, courseName, creatorId, currentUserId) {
     getMaterials(courseId);
 
     // Verificăm dacă utilizatorul care a accesat cursul este creatorul acestuia
-    if (creatorId === currentUserId) {
+    if (creatorId === parseInt(currentUserId)) {
         addUploadButton(courseId);  // Dacă utilizatorul este creator, adăugăm butonul de upload
     }
 
